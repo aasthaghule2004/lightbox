@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main-image{
+            width:200px;
+            margin:4px;
+            
+        }
+        #img1{
+            width:200x;
+            padding:5px;
+            height:300px;
+            background-color: azure;
+        }
+        .tc{
+            width:200x;
+            height:300px;
+            display:flex;
+            justify-content: center;
+            margin-top:4px;
+        }
+        .container{
+            display: flex;
+            justify-content:center;
+            
+        }
+        .btn{
+            background-color: aqua; padding:10px;
+        }
+
+    </style>
+</head>
+<body>
+  <center>
+    <div id="container">
+        <div class="main-image">
+            <img src="https://i.pinimg.com/736x/7c/17/fb/7c17fbd6ec806c0053aa1a203dcc1446.jpg" id="img1">
+        </div>
+        <input type="submit" value="prev" class="btn" id="prev">
+        <input type="submit" value="next" class="btn" id="next">
+        <div class="tc">
+            <img class="t"src="https://i.pinimg.com/736x/85/3d/b4/853db4538574a6d1e5756bceafd8e1f1.jpg">
+            <img class="t"src="https://i.pinimg.com/736x/fd/74/8e/fd748e43bd7ea50f4711d11d96c0b9cc.jpg">
+            <img class="t"src="https://i.pinimg.com/736x/99/49/9e/99499e2bf94b2a71838d7405f9badb32.jpg">
+            <img class="t"src="https://i.pinimg.com/736x/91/64/c3/9164c3293216a67ae7f5271a7dcbb5cd.jpg">
+        </div>
+    </div>
+</center>
+<script>
+  let currentIndex =0
+  var mi = document .getElementById("img1")
+  var thumbnails = document.querySelectorAll(".t")
+  for(let i=0; i<thumbnails.length;i++){
+    thumbnails[i].addEventListener("click",function(){
+      mi.src = thumbnails[i].src
+      currentIndex = i
+    })
+  }
+  document.getElementById("prev").addEventListener('click',function(){
+    currentIndex= (currentIndex-1+thumbnails.length)
+    %thumbnails.length
+    mi.src = thumbnails[currentIndex].src
+
+  })
+  document.getElementById("next").addEventListener('click',function(){
+    currentIndex= (currentIndex+1)%thumbnails.length
+    
+    mi.src = thumbnails[currentIndex].src
+
+  })
+</script>
+
+    
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
